@@ -204,7 +204,7 @@ specified delimited by comma(,).
                     help="""Report only for Project1[,Project2]..
 
 """)
-    parser.add_argument('-filter-by-size-range=','--filter-by-size-range=', dest='sizer', metavar='LOWER-UPPER',
+    parser.add_argument('-filter-by-size-range','--filter-by-size-range=', dest='sizer', metavar='LOWER-UPPER',
              help="""for files of size range LOWER-UPPER in bytes.
 Either of LOWER or UPPER limit may be omitted for open interval. Here
 is how it will be interpreted:
