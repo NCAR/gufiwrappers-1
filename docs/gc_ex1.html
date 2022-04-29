@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>List files owned by a user stored in any directory under HPSS &#8212; qdh  documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -32,7 +33,8 @@
           <a href="qdh.html" title="qdh"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">qdh  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="qdh.html" accesskey="U">qdh</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="qdh.html" accesskey="U">qdh</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">List files owned by a user stored in any directory under HPSS</a></li> 
       </ul>
     </div>  
 
@@ -41,7 +43,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="list-files-owned-by-a-user-stored-in-any-directory-under-hpss">
+  <section id="list-files-owned-by-a-user-stored-in-any-directory-under-hpss">
 <h1>List files owned by a user stored in any directory under HPSS<a class="headerlink" href="#list-files-owned-by-a-user-stored-in-any-directory-under-hpss" title="Permalink to this headline">¶</a></h1>
 <p>If you need to generate the list of files,</p>
 <ol class="arabic simple">
@@ -57,7 +59,7 @@
 <ol class="arabic simple">
 <li><p>login to casper</p></li>
 <li><p>module load gufiwrappers</p></li>
-<li><p><strong>qdh –storage=hpss –list=project,size,filename –owners=xyz123 –directory=/</strong></p></li>
+<li><p><strong>qdh --storage=hpss --list=project,size,filename --owners=xyz123 --directory=/</strong></p></li>
 </ol>
 <p>The above command will run GUFI query in <strong>squall</strong> and generate the
 filelist with date-time-stamped filename as:</p>
@@ -93,9 +95,10 @@ filelist with date-time-stamped filename as:</p>
 Please post any bugs, feedbacks, comments or feature requests
 <a class="reference external" href="https://github.com/NCAR/gufiwrappers/issues">here</a> or just send an email to
 <a class="reference external" href="mailto:sghosh">me</a>.</p>
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -123,7 +126,7 @@ Please post any bugs, feedbacks, comments or feature requests
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -141,12 +144,13 @@ Please post any bugs, feedbacks, comments or feature requests
           <a href="qdh.html" title="qdh"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">qdh  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="qdh.html" >qdh</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="qdh.html" >qdh</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">List files owned by a user stored in any directory under HPSS</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Sidd.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
     </div>
   </body>
 </html>
