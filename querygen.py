@@ -10,7 +10,7 @@ def usrProjPart( entity, ups ):
 
 def periodToQry( entity, per ):
     """
-    Given entity ('mtime', 'ctime' or 'atime') and period (list of
+    Given entity ('size', 'mtime', 'ctime' or 'atime') and period (list of
     1 or 2 integers, 2nd one less than the 1st in case of 2) returns
     query string on entity.
     """
@@ -22,11 +22,12 @@ def periodToQry( entity, per ):
        wpq.append(entity + ' ' + le + ' ' + str(per[1]))
     return '(' + " and ".join(wpq) + ')'
 
-def getQryStr( uids, pids, wp, wpname, rp, fields ):
+def getQryStr( uids, pids, sizer, wp, wpname, rp, fields ):
     """ 
     Generate the query string for gufi_query given constraints of
      1. uids (restricting to the list of uids)
      2. pids (restricting to the list of pids)
+     3. sizer (restricting to the size range)
      3. wp (restricting to the period during 
             which files were last written)
      4. rp (restrict to the period during
@@ -36,12 +37,14 @@ def getQryStr( uids, pids, wp, wpname, rp, fields ):
     """ 
     sqt = '\''
     beg = 'SELECT ' + ','.join(fields) + ' FROM entries '
-    if bool(uids) or bool(pids) or bool(wp) or bool(rp):
+    if bool(uids) or bool(pids) or bool(sizer) or bool(wp) or bool(rp):
        totcons = []
        if bool(uids):
           totcons.append( usrProjPart( 'uid', uids ) )
        if bool(pids):
           totcons.append( usrProjPart( 'xattrs', pids ) )
+       if bool(sizer):
+          totcons.append( periodToQry( 'size', sizer ) )
        if bool(wp):
           totcons.append( periodToQry( wpname, wp ) )
        if bool(rp):
@@ -75,7 +78,7 @@ def getOutputFilename( cachedir, gufitree, remove=True ):
        os.system('rm -f ' + filen + '.*')
     return filen
 
-def getGufiQryCmd( uids, pids, wp, wpname, rp, cachedir, nthreads, gufitree ):
+def getGufiQryCmd( uids, pids, sizer, wp, wpname, rp, cachedir, nthreads, gufitree ):
     """
     Given all the arguments above returns the gufi command to be
     executed in GUFI server.
@@ -88,7 +91,7 @@ def getGufiQryCmd( uids, pids, wp, wpname, rp, cachedir, nthreads, gufitree ):
     nts = '-n ' + '40'
     filen = getOutputFilename( cachedir, gufitree )
     filopt = '-o ' + filen
-    qry = getQryStr( uids, pids, wp, wpname, rp, fields )
+    qry = getQryStr( uids, pids, sizer, wp, wpname, rp, fields )
     qryopt = '-E ' + qry
     fullcmd = ' '.join([cmd, opts, delimopt, nts, filopt, qryopt, gufitree])
     return fullcmd, filen

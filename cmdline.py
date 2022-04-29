@@ -46,6 +46,15 @@ specified delimited by comma(,).
 (applicable only in HPSS)
  
              """)
+    parser.add_argument('--size-range=', dest='sizer', metavar='LOWER-UPPER',
+             help="""for files of size range LOWER-UPPER in bytes.
+Either of LOWER or UPPER limit may be omitted for open interval. Here
+is how it will be interpreted:
+   1.  LOWER-        => File size larger or equal to LOWER
+   2. -UPPER         => File size smaller or equal to UPPER
+   3.  LOWER         => LOWER-
+
+             """)
     parser.add_argument('--write-period=', dest='writep', metavar='YYYY[MM[DD]]-YYYY[MM[DD]]',
              help="""for content written during the time window YYYY[MM[DD]]-YYYY[MM[DD]]
 either of begin or end period may be omitted for open interval. Here
@@ -195,6 +204,15 @@ specified delimited by comma(,).
                     help="""Report only for Project1[,Project2]..
 
 """)
+    parser.add_argument('-filter-by-size-range=','--filter-by-size-range=', dest='sizer', metavar='LOWER-UPPER',
+             help="""for files of size range LOWER-UPPER in bytes.
+Either of LOWER or UPPER limit may be omitted for open interval. Here
+is how it will be interpreted:
+   1.  LOWER-        => File size larger or equal to LOWER
+   2. -UPPER         => File size smaller or equal to UPPER
+   3.  LOWER         => LOWER-
+
+             """)
     parser.add_argument('-filter-by-write-period','--filter-by-write-period=', dest='writep', metavar='YYYY[MM[DD]]-YYYY[MM[DD]]',
              help="""for content written during the time window YYYY[MM[DD]]-YYYY[MM[DD]]
 either of begin or end period may be omitted for open interval. Here

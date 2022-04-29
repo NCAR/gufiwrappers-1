@@ -77,6 +77,7 @@ def driver( parsedata ):
     verbosity = parsedata['verbosity']
     fuids = gm.getUlist( parsedata['fuids'], 'users' )
     fpids = gm.getUlist( parsedata['fpids'], 'projects' )
+    sizer = parsedata['sizer'] 
     wp = parsedata['writep'] 
     rp = parsedata['readp'] 
     storage = parsedata['storage']
@@ -98,7 +99,7 @@ def driver( parsedata ):
     print("The command line was: ",file=sys.stderr)
     print(sys.argv,file=sys.stderr)
 
-    guficmd, filen = qg.getGufiQryCmd( fuids, fpids, wp, wpname, rp, cachedir, nthreads, gufitree )
+    guficmd, filen = qg.getGufiQryCmd( fuids, fpids, sizer, wp, wpname, rp, cachedir, nthreads, gufitree )
     scriptfile, scriptdir = writeGufiScript( gufitmp, guficmd )
     print("Executing gufi command...writing cache files in:")
     print("  ",filen + ".*")    

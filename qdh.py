@@ -21,6 +21,29 @@ def checkListFields( listfields ):
            exit(-1)
     return True
 
+def procSizeRange( sizerange ):
+    """
+    Parse size string to return a 2 element list of sizes. 
+    Full format is: size_lower_bound-size_upper_bound
+    Few abbreviated conventions incorporated:
+      1.  size_lower_bound- => sizes larger or equal to size_lower_bound
+      2. -size_upper_bound  => sizes smaller or equal to size_upper_bound
+      3.  size_bound        => size_lower_bound-
+    """
+    if sizerange == None:
+       return []
+    lst = sizerange.split('-')
+    lstn = []
+    for e in lst:
+       if len(e) > 0:
+          lstn.append(int(e))
+    if len(lstn) == 1:
+       if not sizerange.startswith('-'):
+          lstn.append(-1)
+       else:
+          lstn.insert(0,-1)
+    return lstn
+
 
 def parseCmdLine( ):
     """
@@ -38,7 +61,8 @@ def parseCmdLine( ):
     except:
        fields = None
     parsedata = {'gufitmp':args.gufitmp, 'verbosity':args.verbosity, 'cachedir':os.path.join(gufitmp, 'raw'),
-         'fuids':args.fuids, 'fpids':args.fpids, 'writep':tm.procPeriod( args.writep ),
+         'fuids':args.fuids, 'fpids':args.fpids, 'sizer':procSizeRange( args.sizer ), 
+         'writep':tm.procPeriod( args.writep ),
          'readp':tm.procPeriod( args.readp ), 'storage':args.storage[0], 'treename':args.treename,
          'byusers':args.byusers, 'byprojects':args.byprojects, 'bysubdirs':args.bysubdirs,
          'ncores':int(args.ncores), 'nsbins':int(args.nsbins), 'fields':fields} 
