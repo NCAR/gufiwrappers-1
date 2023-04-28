@@ -21,7 +21,7 @@ ml purge # this unloads all modules from user's cur env
 # ml ncarenv python ---> gonna uncomment incase i need it back
 ml ncarenv conda # instead of loading ncarenv python lets load ncarenv conda
 # ncar_pylib > /dev/null --> this primarily throws the error because we want the conda-based NPL
-conda activate npl # load the varying packages?
+#conda activate npl # load the varying packages?
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"

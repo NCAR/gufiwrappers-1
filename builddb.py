@@ -2,6 +2,8 @@ import numpy as np
 import timefuncs as tm
 import re
 import time
+import builddb as bdb 
+""" added builddb because ERR on MAXHBUILD unitilized, but in other functions it calls from bdb. """
 
 fuidpid = []
 fwp = []
@@ -68,12 +70,12 @@ def parseNfill( fl ):
 
 def crEntry( ):
    """
-   returns an initialized empty row
+   returns an initialized empty row  -- REFERENCING MAX HISTOGRAM BINS
    """
    return {'size': 0.0, 'count': 0,
-           'wHist': np.zeros(MAXHBINS),
-           'rHist': np.zeros(MAXHBINS),
-           'rMinw': np.zeros(MAXHBINS)}
+           'wHist': np.zeros(bdb.MAXHBINS),
+           'rHist': np.zeros(bdb.MAXHBINS),
+           'rMinw': np.zeros(bdb.MAXHBINS)}
 
 
 def fillData( ref, size, uid, mtime, atime, proj, fname, path ):
