@@ -1,3 +1,5 @@
+from __future__ import print_function
+import __future__
 import numpy as np
 import timefuncs as tm
 import re
