@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
 import os
 import sys
 import argparse
@@ -12,6 +12,7 @@ import dsplyfunc as dpy
 import outputlocs as ol
 from multiprocessing import Pool
 import timefuncs as tm
+import __future__
 
 bdb.MAXHBINS = 1024  # Maximum histogram bins
 
