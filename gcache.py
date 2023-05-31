@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
 import os
 import sys
 import argparse
@@ -8,7 +8,7 @@ import gmapfuncs as gm
 import timefuncs as tm
 import querygen as qg
 import outputlocs as ol
-
+import __future__
 
 def writeGufiScript( gufitmp, guficmd ):
     """
@@ -57,6 +57,7 @@ def conCatReport( cfiles, gufitmp, inputfields ):
                    valstr = ','.join(vals)
                    wfh.write("%s\n" % valstr)
                 except:
+                   
                    print("Discarded line:",l,"from: ",fl,"line: ",tmp, file=sys.stderr)
                 l += 1
      

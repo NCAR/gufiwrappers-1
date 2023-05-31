@@ -164,11 +164,65 @@ processing by grprt. Optionally it generates the file lists if the
 for all legal characters in filename and directory names. These raw
 files are not meant to be human readable.</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Examples:</span></p>
+<p class="caption"><span class="caption-text">examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gc_ex1.html">List files owned by a user stored in any directory under HPSS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gc_ex2.html">List files owned by a user and written between year 2010 and 2015</a></li>
 </ul>
+<title>Options Form</title>
+  <script>
+    function generateCommand() {
+      // Retrieve the user inputs from the form
+      var gufitmpDir = document.getElementById("gufitmp-dir").value;
+      var verbose = document.getElementById("verbose").checked ? "True" : "False";
+      var storage = document.getElementById("storage").value;
+      var list = document.getElementById("list").value;
+      var filterByUsers = document.getElementById("filter-by-users").value;
+      var filterByProjects = document.getElementById("filter-by-projects").value;
+      var filterBySizeRange = document.getElementById("filter-by-size-range").value;
+      var filterByWritePeriod = document.getElementById("filter-by-write-period").value;
+      var filterByReadPeriod = document.getElementById("filter-by-read-period").value;
+      // Generate the command using the user inputs
+      var command = `qdh.py --gufitmp-dir=${gufitmpDir} --verbose=${verbose} --storage=${storage} --list=${list} --filter-by-users=${filterByUsers} --filter-by-projects=${filterByProjects} --filter-by-size-range=${filterBySizeRange} --filter-by-write-period=${filterByWritePeriod} --filter-by-read-period=${filterByReadPeriod}`;
+      // Display the generated command
+      document.getElementById("generated-command").innerHTML = "Generated Command: " + command;
+    }
+  </script>
+  <h2>qdh helper</h2>
+  <p>This helper will allow you to copy and paste your requested GUFI command into your terminal.</p>
+  <label for="gufitmp-dir">GUFI TMP Directory:</label>
+  <input type="text" id="gufitmp-dir" value="/gpfs/fs1/scratch/sghosh/gufi_tmp"><br><br>
+
+  <label for="verbose">Verbose:</label>
+  <input type="checkbox" id="verbose"><br><br>
+
+  <label for="storage">Storage:</label>
+  <select id="storage">
+    <option value="project">Project</option>
+    <option value="hpss">HPSS</option>
+  </select><br><br>
+
+  <label for="list">List:</label>
+  <input type="text" id="list"><br><br>
+
+  <label for="filter-by-users">Filter by Users:</label>
+  <input type="text" id="filter-by-users"><br><br>
+
+  <label for="filter-by-projects">Filter by Projects:</label>
+  <input type="text" id="filter-by-projects"><br><br>
+
+  <label for="filter-by-size-range">Filter by Size Range:</label>
+  <input type="text" id="filter-by-size-range"><br><br>
+
+  <label for="filter-by-write-period">Filter by Write Period:</label>
+  <input type="text" id="filter-by-write-period"><br><br>
+
+  <label for="filter-by-read-period">Filter by Read Period:</label>
+  <input type="text" id="filter-by-read-period"><br><br>
+
+  <button onclick="generateCommand()">Generate Command</button>
+  
+  <p id="generated-command"></p>
 </div>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>

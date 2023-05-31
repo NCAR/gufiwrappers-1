@@ -130,7 +130,7 @@ def fsnameToSearch( storage, fsname ):
       elif fsname.startswith(('/glade/campaign','/gpfs/csfs1')):
          return '/search' + fsname[6:]
    else:
-      return '/search/hpss' + fsname
+      """return '/search/hpss' + str(fsname)"""
    print("The path ",fsname,"in storage:",storage, " does not exist.. exiting!")
    exit(-1)
 
