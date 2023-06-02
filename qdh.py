@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
+import __future__
 import os
 import getpass
 import cmdline as cmdl

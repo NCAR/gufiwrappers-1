@@ -1,3 +1,5 @@
+from __future__ import print_function
+import __future__
 import timefuncs as tm
 import gmapfuncs as gm
 

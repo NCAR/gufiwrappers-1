@@ -1,3 +1,5 @@
+from __future__ import print_function
+import __future__
 import os
 
 def usrProjPart( entity, ups ):
