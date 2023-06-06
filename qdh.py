@@ -55,7 +55,8 @@ def parseCmdLine( ):
     gufitmp = os.path.join('/gpfs/fs1/scratch', username, 'gufi_tmp')
     cmdl.gufitmp = gufitmp
     parser = cmdl.parserForQdh( )
-    args = parser.parse_args()
+    """args = parser.parse_args()"""
+    args, unknown = parser.parse_known_args()
     try:
        fields = args.listd[0].split(',')
        checkListFields( fields )
