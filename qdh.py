@@ -71,7 +71,7 @@ def parseCmdLine( ):
     return parsedata
     
 if __name__ == "__main__":
-    parsedata = parseCmdLine()
+    parsedata = parseCmdLine( )
     gcache.driver( parsedata )
     if parsedata['fields'] == None:
        grprt.driver( parsedata )
