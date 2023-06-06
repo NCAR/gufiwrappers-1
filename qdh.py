@@ -18,7 +18,7 @@ def checkListFields( listfields ):
     validfields = ['filename', 'size', 'owner', 'project', 'mtime', 'atime']
     for ent in listfields:
        if ent not in validfields:
-           print("The field ",ent," not valid, the list of valid field is: ", validfields)
+           print("The field ", ent ," not valid, the list of valid field is: ", validfields)
            exit(-1)
     return True
 
@@ -70,7 +70,7 @@ def parseCmdLine( ):
     return parsedata
     
 if __name__ == "__main__":
-    parsedata = parseCmdLine( )
+    parsedata = parseCmdLine()
     gcache.driver( parsedata )
     if parsedata['fields'] == None:
        grprt.driver( parsedata )
