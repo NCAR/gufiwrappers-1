@@ -7,7 +7,11 @@ import getpass
 import cmdline as cmdl
 import glob
 import gcache
+"""trying a solution from stack overflow: https://stackoverflow.com/questions/42249982/systemexit-2-error-when-calling-parse-args-within-ipython"""
 import grprt
+import sys
+sys.argv=['']
+del sys
 import timefuncs as tm
 
 parsedata = {}
