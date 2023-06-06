@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from __future__ import print_function
 import __future__
+import argparse
 import os
 import getpass
 import cmdline as cmdl
@@ -56,6 +57,7 @@ def parseCmdLine( ):
     cmdl.gufitmp = gufitmp
     parser = cmdl.parserForQdh( )
     """args = parser.parse_args()"""
+    """using this link: https://docs.python.org/3/library/argparse.html#partial-parsing"""
     args, unknown = parser.parse_known_args()
     try:
        fields = args.listd[0].split(',')
